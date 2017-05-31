@@ -1,0 +1,19 @@
+<div class = "container">
+  <div class = "wrapper col-md-8 col-md-offset-2-sm-10">
+
+<p><%= notice %></p>
+
+<h1>つぶやき一覧</h1>
+
+
+<% @tweets.each do |tweet| %>
+<div class = "row">
+  <p>本文:<%= tweet.content %></p>
+  <%= link_to "編集する", edit_tweet_path(tweet.id),class:'btn btn-default btn-sm btn-success'%>
+  <%= link_to "削除する", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class:'btn btn-default btn-sm btn btn-danger' %>
+  </div>
+<% end %>
+<%= link_to "つぶやきを作成する", new_tweet_path %>
+</div>
+</div>
+
